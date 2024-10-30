@@ -1,0 +1,53 @@
+{
+  "name": "extro",
+  "version": "1.0.0",
+  "description": "Open source browser extension starter kit.",
+  "license": "MIT",
+  "author": "Bartosz Zagrodzki",
+  "scripts": {
+    "dev": "bun dev:chrome",
+    "dev:chrome": "bun with-app-dir plasmo dev",
+    "dev:firefox": "bun with-app-dir plasmo dev --target=firefox-mv2",
+    "lint": "biome check",
+    "lint:fix": "biome check --write",
+    "prepare": "husky",
+    "typecheck": "tsc --noEmit",
+    "with-app-dir": "sh -c 'if [[ \"$*\" != *--src-path=* ]]; then set -- $@ --src-path=src/app; fi; exec $@' --"
+  },
+  "dependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@plasmohq/messaging": "0.6.2",
+    "@plasmohq/storage": "1.12.0",
+    "@t3-oss/env-core": "0.11.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.454.0",
+    "plasmo": "0.89.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.4.1",
+    "@commitlint/config-conventional": "19.4.1",
+    "@commitlint/types": "19.0.3",
+    "@types/chrome": "0.0.270",
+    "@types/node": "20.16.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "husky": "^9.1.6",
+    "typescript": "^5.6.3"
+  },
+  "manifest": {
+    "name": "__MSG_extensionName__",
+    "default_locale": "en",
+    "host_permissions": ["<all_urls>"],
+    "permissions": ["storage", "sidePanel", "scripting", "cookies"],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "extension@extro.dev"
+      }
+    }
+  }
+}

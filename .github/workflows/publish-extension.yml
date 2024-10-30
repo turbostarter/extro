@@ -1,0 +1,49 @@
+name: CI / Publish extension
+
+on:
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: 20.x
+
+jobs:
+  tests:
+    name: 🧪 Tests
+    uses: ./.github/workflows/tests.yml
+
+  publish:
+    name: 🚀 Publish extension
+    runs-on: ubuntu-latest
+    environment: Production
+    needs: [tests]
+
+    steps:
+      - name: ✅ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔨 Setup
+        uses: ./.github/workflows/setup
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 📦 Build
+        run: bun run build
+
+      - name: 🗃️ Archive Chrome artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: chrome-${{ github.sha }}
+          path: build/chrome-mv3-prod
+
+      - name: 🗃️ Archive Firefox artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: firefox-${{ github.sha }}
+          path: build/firefox-mv2-prod
+
+      - name: 💨 Publish!
+        uses: PlasmoHQ/bpp@v3
+        with:
+          chrome-file: build/chrome-mv3-prod.zip
+          firefox-file: build/firefox-mv2-prod.zip
+          keys: ${{ secrets.SUBMIT_KEYS }}

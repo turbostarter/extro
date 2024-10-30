@@ -1,0 +1,10 @@
+{
+  "extensionDescription": {
+    "description": "Description of the extension.",
+    "message": "Open source browser extension starter kit."
+  },
+  "extensionName": {
+    "description": "Name of the extension.",
+    "message": "Extro"
+  }
+}
