@@ -1,12 +1,12 @@
 import { Main } from "~/components/common/main";
 import { Layout } from "~/components/layout/layout";
 
-const Popup = () => {
+const Options = () => {
   return (
-    <Layout>
-      <Main className="w-[23rem] px-4" filename="app/popup" />
+    <Layout className="p-8">
+      <Main filename="app/options" />
     </Layout>
   );
 };
 
-export default Popup;
+export default Options;

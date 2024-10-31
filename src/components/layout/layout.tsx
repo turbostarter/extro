@@ -6,6 +6,7 @@ import { cn } from "~/lib/utils";
 import { Theme } from "~/types";
 
 import "~/styles/globals.css";
+import { Footer } from "~/components/layout/footer";
 import { Header } from "~/components/layout/header";
 
 interface LayoutProps {
@@ -40,12 +41,13 @@ export const Layout = ({
         >
           <div
             className={cn(
-              "flex-1 bg-background text-foreground w-full max-w-[80rem] grow flex-col items-center justify-between gap-16 p-4",
+              "flex bg-background text-foreground w-full max-w-[80rem] grow flex-col items-center justify-between gap-12 p-5",
               className,
             )}
           >
             <Header />
             {children}
+            <Footer />
           </div>
         </div>
       </Suspense>

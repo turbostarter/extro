@@ -6,5 +6,20 @@
   "extensionName": {
     "description": "Name of the extension.",
     "message": "Extro"
+  },
+  "hello": {
+    "message": "Hello from"
+  },
+  "star": {
+    "message": "Star"
+  },
+  "follow": {
+    "message": "Follow"
+  },
+  "learnMore": {
+    "message": "Learn more"
+  },
+  "contentScriptUI": {
+    "message": "Content Script UI"
   }
 }
