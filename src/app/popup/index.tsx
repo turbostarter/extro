@@ -1,5 +1,12 @@
+import { Layout } from "~/components/layout/layout";
+import { Button } from "~/components/ui/button";
+
 const Popup = () => {
-  return <div>Popup</div>;
+  return (
+    <Layout>
+      <Button>Popup</Button>
+    </Layout>
+  );
 };
 
 export default Popup;
