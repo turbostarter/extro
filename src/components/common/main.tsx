@@ -16,7 +16,7 @@ export const Main = ({ className, filename }: MainProps) => {
     >
       <Logo className="w-24 animate-pulse text-primary" />
       <p className="text-pretty text-center leading-tight">
-        {chrome.i18n.getMessage("hello")}
+        {chrome.i18n.getMessage("hello")}{" "}
         <code className="inline-block rounded-sm bg-muted px-1.5 text-sm text-muted-foreground">
           {filename}
         </code>{" "}

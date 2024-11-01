@@ -1,13 +1,18 @@
 import { useStorage } from "@plasmohq/storage/hook";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { ErrorBoundary } from "~/components/common/error-boundary";
 import { Suspense } from "~/components/common/suspense";
+import { Footer } from "~/components/layout/footer";
+import { Header } from "~/components/layout/header";
+import { Toaster } from "~/components/ui/sonner";
 import { STORAGE_KEY } from "~/lib/storage";
 import { cn } from "~/lib/utils";
 import { Theme } from "~/types";
 
 import "~/styles/globals.css";
-import { Footer } from "~/components/layout/footer";
-import { Header } from "~/components/layout/header";
+import type { User } from "@supabase/supabase-js";
+import { supabase } from "~/lib/supabase";
 
 interface LayoutProps {
   readonly children: React.ReactElement;
@@ -22,35 +27,52 @@ export const Layout = ({
   errorFallback,
   className,
 }: LayoutProps) => {
+  const [queryClient] = useState(() => new QueryClient());
+
   const [theme] = useStorage<Theme>(STORAGE_KEY.THEME);
+  const [_, setUser] = useStorage<User | null>(STORAGE_KEY.USER);
+
+  useEffect(() => {
+    const { data } = supabase.auth.onAuthStateChange((_, session) => {
+      console.log("session", _);
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      data.subscription.unsubscribe();
+    };
+  }, [setUser]);
 
   return (
-    <ErrorBoundary fallback={errorFallback}>
-      <Suspense fallback={loadingFallback}>
-        <div
-          id="root"
-          className={cn(
-            "flex min-h-screen w-full min-w-[23rem] flex-col items-center justify-center font-sans text-base",
-            {
-              dark:
-                theme === Theme.DARK ||
-                (theme === Theme.SYSTEM &&
-                  window.matchMedia("(prefers-color-scheme: dark)").matches),
-            },
-          )}
-        >
+    <QueryClientProvider client={queryClient}>
+      <ErrorBoundary fallback={errorFallback}>
+        <Suspense fallback={loadingFallback}>
           <div
+            id="root"
             className={cn(
-              "flex bg-background text-foreground w-full max-w-[80rem] grow flex-col items-center justify-between gap-12 p-5",
-              className,
+              "flex min-h-screen bg-background text-foreground w-full min-w-[23rem] flex-col items-center justify-center font-sans text-base",
+              {
+                dark:
+                  theme === Theme.DARK ||
+                  (theme === Theme.SYSTEM &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches),
+              },
             )}
           >
-            <Header />
-            {children}
-            <Footer />
+            <div
+              className={cn(
+                "flex w-full max-w-[80rem] grow flex-col items-center justify-between gap-12 p-5",
+                className,
+              )}
+            >
+              <Header />
+              {children}
+              <Footer />
+              <Toaster />
+            </div>
           </div>
-        </div>
-      </Suspense>
-    </ErrorBoundary>
+        </Suspense>
+      </ErrorBoundary>
+    </QueryClientProvider>
   );
 };
