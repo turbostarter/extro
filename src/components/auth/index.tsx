@@ -46,7 +46,7 @@ const Separator = () => {
       </div>
       <div className="relative flex justify-center text-xs uppercase">
         <span className="bg-card px-2 text-muted-foreground">
-          Or continue with
+          {chrome.i18n.getMessage("continueWith")}
         </span>
       </div>
     </div>
@@ -58,7 +58,9 @@ const Socials = () => {
     mutationFn: (provider: Provider) =>
       supabase.auth.signInWithOAuth({
         provider,
-        options: { redirectTo: location.href },
+        options: {
+          redirectTo: `${new URL(location.href).origin}/options.html`,
+        },
       }),
     onError: (error) => toast.error(error.message),
   });

@@ -89,7 +89,7 @@ export const User = () => {
             className="w-full"
             onClick={() => supabase.auth.signOut()}
           >
-            Logout
+            {chrome.i18n.getMessage("logout")}
           </button>
         </DropdownMenuItem>
       </DropdownMenuContent>

@@ -37,12 +37,8 @@ export const ThemeSwitch = memo<ThemeSwitchProps>(({ className }) => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {Object.values(Theme).map((theme) => (
-          <DropdownMenuItem
-            key={theme}
-            onClick={() => setTheme(theme)}
-            className="capitalize"
-          >
-            {theme}
+          <DropdownMenuItem key={theme} onClick={() => setTheme(theme)}>
+            {chrome.i18n.getMessage(theme)}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

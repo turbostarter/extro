@@ -3,8 +3,8 @@ import { Auth } from "~/components/auth";
 const RegisterTab = () => {
   return (
     <Auth.Layout
-      title="Register"
-      description="Enter your details below to create your account"
+      title={chrome.i18n.getMessage("register")}
+      description={chrome.i18n.getMessage("registerDescription")}
     >
       <Auth.Socials />
       <Auth.Separator />

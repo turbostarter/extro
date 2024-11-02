@@ -42,23 +42,23 @@
 
 ## Features ✨ <a name="features"></a>
 
- 🔒 Full type-safety with Typescript <br />
- 📄 All pages (background, popup, options etc.) <br />
- 📜 Content scripts <br />
- 🔐 Authentication (OAuth) <br />
- 💾 Storage <br />
- 💬 Messaging <br />
- 🔥 Hot reloading <br />
- 🚀 One-click publishing <br />
- 🌍 Internationalization <br />
- 📊 Analytics <br />
- ✨ Linting and formatting <br />
- 🔄 CI/CD pipelines <br />
- ⚙️ Environment variables <br />
- 🎨 shadcn/ui compatible <br />
- 🔤 Custom fonts <br />
- 🤖 AI integration (experimental) <br />
- 💳 Billing (coming soon)
+- 🔒 Full type-safety with Typescript
+- 📄 All pages (background, popup, options etc.)
+- 📜 Content scripts
+- 🔐 Authentication (OAuth)
+- 💾 Storage
+- 💬 Messaging
+- 🔥 Hot reloading
+- 🚀 One-click publishing
+- 🌍 Internationalization
+- 📊 Analytics
+- ✨ Linting and formatting
+- 🔄 CI/CD pipelines
+- ⚙️ Environment variables
+- 🎨 shadcn/ui compatible
+- 🔤 Custom fonts
+- 🤖 AI integration (experimental)
+- 💳 Billing (coming soon)
 
 ## Tech stack 🛠️ <a name="tech-stack"></a>
 

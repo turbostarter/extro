@@ -12,7 +12,7 @@ export const Footer = () => {
           className: "w-[6.5rem]",
         })}
       >
-        Star{" "}
+        {chrome.i18n.getMessage("star")}{" "}
         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>GitHub</title>
           <path
@@ -31,7 +31,7 @@ export const Footer = () => {
           className: "w-[6.5rem]",
         })}
       >
-        Follow{" "}
+        {chrome.i18n.getMessage("follow")}{" "}
         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>X</title>
           <path

@@ -52,7 +52,7 @@ export const Login = () => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{chrome.i18n.getMessage("email")}</FormLabel>
               <FormControl>
                 <Input placeholder="email@example.com" {...field} />
               </FormControl>
@@ -66,7 +66,7 @@ export const Login = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{chrome.i18n.getMessage("password")}</FormLabel>
               <FormControl>
                 <Input type="password" placeholder="••••••••" {...field} />
               </FormControl>
@@ -75,14 +75,18 @@ export const Login = () => {
           )}
         />
         <Button type="submit" className="w-full mt-2" disabled={isPending}>
-          {isPending ? <Loader2 className="size-4 animate-spin" /> : "Login"}
+          {isPending ? (
+            <Loader2 className="size-4 animate-spin" />
+          ) : (
+            chrome.i18n.getMessage("login")
+          )}
         </Button>
       </form>
 
       <div className="mt-4 text-center text-sm">
-        Don&apos;t have an account?{" "}
+        {chrome.i18n.getMessage("dontHaveAccount")}{" "}
         <a href="/tabs/register.html" className="underline hover:no-underline">
-          Sign up
+          {chrome.i18n.getMessage("register")}
         </a>
       </div>
     </Form>
