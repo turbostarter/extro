@@ -1,4 +1,4 @@
-name: CI / Publish extension
+name: CI / Publish
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
     uses: ./.github/workflows/tests.yml
 
   publish:
-    name: 🚀 Publish extension
+    name: 🚀 Publish
     runs-on: ubuntu-latest
     environment: Production
     needs: [tests]
@@ -45,5 +45,5 @@ jobs:
         uses: PlasmoHQ/bpp@v3
         with:
           chrome-file: build/chrome-mv3-prod.zip
-          firefox-file: build/firefox-mv2-prod.zip
+          # firefox-file: build/firefox-mv2-prod.zip
           keys: ${{ secrets.SUBMIT_KEYS }}
