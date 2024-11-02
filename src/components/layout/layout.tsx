@@ -7,12 +7,12 @@ import { Footer } from "~/components/layout/footer";
 import { Header } from "~/components/layout/header";
 import { Toaster } from "~/components/ui/sonner";
 import { STORAGE_KEY } from "~/lib/storage";
+import { supabase } from "~/lib/supabase";
 import { cn } from "~/lib/utils";
 import { Theme } from "~/types";
+import type { User } from "~/types";
 
 import "~/styles/globals.css";
-import type { User } from "@supabase/supabase-js";
-import { supabase } from "~/lib/supabase";
 
 interface LayoutProps {
   readonly children: React.ReactElement;
@@ -34,14 +34,14 @@ export const Layout = ({
 
   useEffect(() => {
     const { data } = supabase.auth.onAuthStateChange((_, session) => {
-      console.log("session", _);
       setUser(session?.user ?? null);
+      queryClient.invalidateQueries({ queryKey: ["user"] });
     });
 
     return () => {
       data.subscription.unsubscribe();
     };
-  }, [setUser]);
+  }, [setUser, queryClient.invalidateQueries]);
 
   return (
     <QueryClientProvider client={queryClient}>

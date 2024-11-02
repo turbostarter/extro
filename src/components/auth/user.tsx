@@ -1,5 +1,5 @@
-import { useStorage } from "@plasmohq/storage/hook";
-import type { User as UserType } from "@supabase/supabase-js";
+import { sendToBackground } from "@plasmohq/messaging";
+import { useQuery } from "@tanstack/react-query";
 import { LogIn, UserRound } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
@@ -11,9 +11,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
-import { STORAGE_KEY } from "~/lib/storage";
 import { supabase } from "~/lib/supabase";
 import { getAvatar, getName } from "~/lib/utils";
+import type { User as UserType } from "~/types";
 
 const AnonymousUser = () => {
   return (
@@ -33,7 +33,20 @@ const AnonymousUser = () => {
 };
 
 export const User = () => {
-  const [user] = useStorage<UserType | null>(STORAGE_KEY.USER);
+  const { data } = useQuery({
+    queryKey: ["user"],
+    queryFn: () =>
+      sendToBackground<
+        undefined,
+        {
+          user: UserType | null;
+        }
+      >({
+        name: "user",
+      }),
+  });
+
+  const user = data?.user;
 
   if (!user) {
     return <AnonymousUser />;

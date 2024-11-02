@@ -1,7 +1,7 @@
 import { Storage } from "@plasmohq/storage";
 import { Theme } from "~/types";
 
-const storage = new Storage();
+export const storage = new Storage();
 
 export const STORAGE_KEY = {
   THEME: "theme",
