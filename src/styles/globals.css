@@ -4,6 +4,9 @@
 
 @layer base {
   :root {
+    --font-sans: "Geist", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -66,5 +69,39 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/assets/fonts/Geist-Regular.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/assets/fonts/Geist-Bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Geist Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/assets/fonts/GeistMono-Regular.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Geist Mono";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/assets/fonts/GeistMono-Bold.woff2) format("woff2");
   }
 }

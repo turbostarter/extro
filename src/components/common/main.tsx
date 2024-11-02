@@ -24,6 +24,8 @@ export const Main = ({ className, filename }: MainProps) => {
       </p>
       <a
         href="https://turbostarter.dev/docs/extension"
+        target="_blank"
+        rel="noreferrer"
         className="cursor-pointer text-sm text-primary underline hover:no-underline"
       >
         {chrome.i18n.getMessage("learnMore")}
