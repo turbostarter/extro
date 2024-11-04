@@ -1,9 +1,27 @@
+import { Bot } from "lucide-react";
 import { User } from "~/components/auth/user";
 import { ThemeSwitch } from "~/components/common/theme";
+import { buttonVariants } from "~/components/ui/button";
+import { cn } from "~/lib/utils";
 
 export const Header = () => {
   return (
     <header className="flex items-center justify-center gap-2">
+      <a
+        href="/tabs/ai.html"
+        target="_blank"
+        rel="noreferrer"
+        className={cn(
+          buttonVariants({
+            variant: "outline",
+            size: "icon",
+          }),
+          "rounded-full",
+        )}
+      >
+        <Bot className="size-5" />
+        <span className="sr-only">AI Demo</span>
+      </a>
       <ThemeSwitch />
       <User />
     </header>

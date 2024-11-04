@@ -24,6 +24,7 @@
 <a href="https://discord.gg/KjpK2uk3JP" target="_blank"><img src="https://discord.com/api/guilds/1280456871693779006/widget.png"/></a>
 
 
+
 </div>
 
 <p align="center">
@@ -38,6 +39,10 @@
 
   Everything you need to build a production ready browser extension, it's an **opinionated** stack based on learnings from building multiple browser extensions using the latest React framework. It's a starter kit with a focus on code reuse and best practices that will grow with your business.
 
+> [!TIP]
+> Sharing storage and authentication session between all pages
+>
+> https://github.com/user-attachments/assets/970eddf8-5faf-42cc-89ed-54b7c7548bc8
 
 
 ## Features ✨ <a name="features"></a>
@@ -57,7 +62,7 @@
 - ⚙️ Environment variables
 - 🎨 shadcn/ui compatible
 - 🔤 Custom fonts
-- 🤖 AI integration (experimental)
+- 🤖 Native AI integration (experimental)
 - 💳 Billing (coming soon)
 
 ## Tech stack 🛠️ <a name="tech-stack"></a>

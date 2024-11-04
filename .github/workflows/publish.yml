@@ -45,5 +45,5 @@ jobs:
         uses: PlasmoHQ/bpp@v3
         with:
           chrome-file: build/chrome-mv3-prod.zip
-          # firefox-file: build/firefox-mv2-prod.zip
+          firefox-file: build/firefox-mv2-prod.zip
           keys: ${{ secrets.SUBMIT_KEYS }}

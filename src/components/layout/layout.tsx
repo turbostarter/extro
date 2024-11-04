@@ -15,7 +15,7 @@ import type { User } from "~/types";
 import "~/styles/globals.css";
 
 interface LayoutProps {
-  readonly children: React.ReactElement;
+  readonly children: React.ReactNode;
   readonly loadingFallback?: React.ReactElement;
   readonly errorFallback?: React.ReactElement;
   readonly className?: string;
