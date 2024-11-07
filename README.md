@@ -63,6 +63,7 @@
 - 🎨 shadcn/ui compatible
 - 🔤 Custom fonts
 - 🤖 Native AI integration (experimental)
+- ✨ [ts-reset](https://github.com/mattpocock/ts-reset) for enhanced DX
 - 💳 Billing (coming soon)
 
 ## Tech stack 🛠️ <a name="tech-stack"></a>
