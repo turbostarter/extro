@@ -39,6 +39,10 @@
 
   Everything you need to build a production ready browser extension, it's an **opinionated** stack based on learnings from building multiple browser extensions using the latest React framework. It's a starter kit with a focus on code reuse and best practices that will grow with your business.
 
+> [!NOTE]
+> This project is listed on [Awesome Open Source Boilerplates](https://github.com/EinGuterWaran/awesome-opensource-boilerplates) and [Awesome SaaS Boilerplates](https://github.com/smirnov-am/awesome-saas-boilerplates)
+
+
 > [!TIP]
 > Sharing storage and authentication session between all pages
 >
@@ -58,6 +62,7 @@
 - 🌍 Internationalization
 - 📊 Analytics
 - ✨ Linting and formatting
+- 🧪 Unit tests
 - 🔄 CI/CD pipelines
 - ⚙️ Environment variables
 - 🎨 shadcn/ui compatible

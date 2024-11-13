@@ -6,16 +6,15 @@
   "author": "Bartosz Zagrodzki",
   "scripts": {
     "build": "run-p build:chrome build:firefox",
-    "build:chrome": "bun with-app-dir plasmo build --zip",
-    "build:firefox": "bun with-app-dir plasmo build --target=firefox-mv2 --zip",
+    "build:chrome": "plasmo build --src-path=src/app --zip",
+    "build:firefox": "plasmo build --src-path=src/app --target=firefox-mv2 --zip",
     "dev": "bun dev:chrome",
-    "dev:chrome": "bun with-app-dir plasmo dev",
-    "dev:firefox": "bun with-app-dir plasmo dev --target=firefox-mv2",
+    "dev:chrome": "plasmo dev --src-path=src/app",
+    "dev:firefox": "plasmo dev --src-path=src/app --target=firefox-mv2",
     "lint": "biome check",
     "lint:fix": "biome check --write",
     "prepare": "husky",
-    "typecheck": "tsc --noEmit",
-    "with-app-dir": "sh -c 'if [[ \"$*\" != *--src-path=* ]]; then set -- $@ --src-path=src/app; fi; exec $@' --"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@biomejs/biome": "^1.9.4",
@@ -40,7 +39,7 @@
     "marked": "^14.1.3",
     "next-themes": "^0.3.0",
     "npm-run-all": "^4.1.5",
-    "plasmo": "0.89.3",
+    "plasmo": "0.89.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-form": "^7.53.1",
@@ -55,6 +54,7 @@
     "@commitlint/types": "19.0.3",
     "@tailwindcss/typography": "^0.5.15",
     "@total-typescript/ts-reset": "^0.6.1",
+    "@types/bun": "latest",
     "@types/chrome": "0.0.270",
     "@types/node": "20.16.10",
     "@types/react": "^18.3.3",

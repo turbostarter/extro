@@ -33,5 +33,8 @@ jobs:
       - name: 🛻 Lint
         run: bun lint
 
-      - name: 🧪 Typecheck
+      - name: 💡 Typecheck
         run: bun typecheck
+
+      - name: 🧪 Unit tests
+        run: bun test
