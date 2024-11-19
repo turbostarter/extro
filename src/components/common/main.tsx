@@ -1,4 +1,6 @@
-import Logo from "react:assets/logo.svg";
+import { browser } from "wxt/browser";
+
+import Logo from "~/assets/logo.svg?react";
 import { cn } from "~/lib/utils";
 
 interface MainProps {
@@ -16,7 +18,7 @@ export const Main = ({ className, filename }: MainProps) => {
     >
       <Logo className="w-24 animate-pulse text-primary" />
       <p className="text-pretty text-center leading-tight">
-        {chrome.i18n.getMessage("hello")}{" "}
+        {browser.i18n.getMessage("hello")}{" "}
         <code className="inline-block rounded-sm bg-muted px-1.5 text-sm text-muted-foreground">
           {filename}
         </code>{" "}
@@ -28,7 +30,7 @@ export const Main = ({ className, filename }: MainProps) => {
         rel="noreferrer"
         className="cursor-pointer text-sm text-primary underline hover:no-underline"
       >
-        {chrome.i18n.getMessage("learnMore")}
+        {browser.i18n.getMessage("learnMore")}
       </a>
     </main>
   );

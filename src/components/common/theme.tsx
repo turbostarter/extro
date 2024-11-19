@@ -1,8 +1,8 @@
 "use client";
 
-import { useStorage } from "@plasmohq/storage/hook";
 import { Moon, Sun } from "lucide-react";
 import { memo } from "react";
+import { browser } from "wxt/browser";
 
 import { Button } from "~/components/ui/button";
 import {
@@ -11,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
-import { STORAGE_KEY } from "~/lib/storage";
+import { StorageKey, useStorage } from "~/lib/storage";
 import { cn } from "~/lib/utils";
 import { Theme } from "~/types";
 
@@ -20,7 +20,7 @@ type ThemeSwitchProps = {
 };
 
 export const ThemeSwitch = memo<ThemeSwitchProps>(({ className }) => {
-  const [_, setTheme] = useStorage<Theme>(STORAGE_KEY.THEME);
+  const { set: setTheme } = useStorage(StorageKey.THEME);
 
   return (
     <DropdownMenu>
@@ -38,7 +38,7 @@ export const ThemeSwitch = memo<ThemeSwitchProps>(({ className }) => {
       <DropdownMenuContent align="end">
         {Object.values(Theme).map((theme) => (
           <DropdownMenuItem key={theme} onClick={() => setTheme(theme)}>
-            {chrome.i18n.getMessage(theme)}
+            {browser.i18n.getMessage(theme)}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

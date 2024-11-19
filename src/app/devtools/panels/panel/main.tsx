@@ -1,4 +1,5 @@
-import { createRoot } from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 import { Main } from "~/components/common/main";
 import { Layout } from "~/components/layout/layout";
@@ -11,7 +12,8 @@ const Panel = () => {
   );
 };
 
-const element = document.getElementById("root");
-
-const root = element ? createRoot(element) : null;
-root?.render(<Panel />);
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <Panel />
+  </React.StrictMode>,
+);

@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 import { Main } from "~/components/common/main";
 import { Layout } from "~/components/layout/layout";
 
@@ -9,4 +12,8 @@ const Popup = () => {
   );
 };
 
-export default Popup;
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <Popup />
+  </React.StrictMode>,
+);

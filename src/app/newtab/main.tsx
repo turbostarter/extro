@@ -1,6 +1,8 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 import { Main } from "~/components/common/main";
 import { Layout } from "~/components/layout/layout";
-import "~/styles/globals.css";
 
 const NewTab = () => {
   return (
@@ -10,4 +12,8 @@ const NewTab = () => {
   );
 };
 
-export default NewTab;
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <NewTab />
+  </React.StrictMode>,
+);

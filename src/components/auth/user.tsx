@@ -1,6 +1,6 @@
-import { sendToBackground } from "@plasmohq/messaging";
-import { useQuery } from "@tanstack/react-query";
 import { LogIn, UserRound } from "lucide-react";
+import { browser } from "wxt/browser";
+
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
 import {
@@ -13,7 +13,6 @@ import {
 } from "~/components/ui/dropdown-menu";
 import { supabase } from "~/lib/supabase";
 import { getAvatar, getName } from "~/lib/utils";
-import type { User as UserType } from "~/types";
 
 const AnonymousUser = () => {
   return (
@@ -22,7 +21,7 @@ const AnonymousUser = () => {
       size="icon"
       className="rounded-full"
       onClick={() => {
-        chrome.tabs.create({
+        browser.tabs.create({
           url: "./tabs/login.html",
         });
       }}
@@ -33,20 +32,20 @@ const AnonymousUser = () => {
 };
 
 export const User = () => {
-  const { data } = useQuery({
-    queryKey: ["user"],
-    queryFn: () =>
-      sendToBackground<
-        undefined,
-        {
-          user: UserType | null;
-        }
-      >({
-        name: "user",
-      }),
-  });
+  // const { data } = useQuery({
+  //   queryKey: ["user"],
+  //   queryFn: () =>
+  //     sendToBackground<
+  //       undefined,
+  //       {
+  //         user: UserType | null;
+  //       }
+  //     >({
+  //       name: "user",
+  //     }),
+  // });
 
-  const user = data?.user;
+  const user = null;
 
   if (!user) {
     return <AnonymousUser />;
@@ -68,7 +67,7 @@ export const User = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuLabel className="font-normal">
-          <div className="flex flex-col space-y-2">
+          {/* <div className="flex flex-col space-y-2">
             {name && (
               <p className="font-sans text-sm font-medium leading-none">
                 {name}
@@ -79,7 +78,7 @@ export const User = () => {
                 {user.email}
               </p>
             )}
-          </div>
+          </div> */}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
@@ -89,7 +88,7 @@ export const User = () => {
             className="w-full"
             onClick={() => supabase.auth.signOut()}
           >
-            {chrome.i18n.getMessage("logout")}
+            {browser.i18n.getMessage("logout")}
           </button>
         </DropdownMenuItem>
       </DropdownMenuContent>
