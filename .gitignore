@@ -6,10 +6,11 @@ node_modules
 .pnp.js
 
 # extension
-.plasmo
 build/
-.cache
-keys.json
+stats.html
+stats-*.json
+.wxt
+web-ext.config.ts
 
 # misc
 .DS_Store

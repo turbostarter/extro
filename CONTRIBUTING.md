@@ -18,12 +18,12 @@ Description of the project files and directories.
 ├── .github/                      # Github related files (workflows, templates)
 ├── .husky/                       # Husky config
 ├── .vscode/                      # VSCode settings (extensions, settings)
-├── assets/                       # Static assets (fonts, images, svgs, etc.)
 ├── src/                          # Source code for the extension
 │    ├── app/                     # Entry files for each part of the extension (background, popup, options, etc.)
+│    ├── assets/                  # Static assets (fonts, images, svgs, etc.)
 │    ├── components/              # Shared components
 │    ├── lib/                     # Utility functions and third-party libraries
-│    ├── styles/                  # Global styles
+│    ├── public/                  # Public assets (fonts, locales, etc.)
 │    ├── types/                   # TypeScript types
 │    └── typings/                 # Custom type definitions
 ├── .cursorrules                  # Cursor rules
@@ -33,24 +33,24 @@ Description of the project files and directories.
 ├── bun.lockb                     # Bun lockfile
 ├── commitlint.config.ts          # Config for CommitLint - to enforce commit consistency
 ├── components.json               # shadcn/ui configuration
-├── keys.template.json            # Publishing API keys template
 ├── package.json                  # Dependencies and additional informations about the project
 ├── tailwind.config.ts            # Tailwind configuration
 ├── tsconfig.json                 # TypeScript config
+├── wxt.config.ts                 # WXT configuration
 ```
 
 ### `/app`
 
 Extro ships with the following extension pages preconfigured:
 
-- `background` - [background service worker](https://docs.plasmo.com/framework/background-service-worker)
-- `contents` - [content scripts](https://docs.plasmo.com/framework/content-scripts) that run in the context of web pages
-- `devtools` - [devtools](https://docs.plasmo.com/framework/devtools) page with custom panels
-- `newtab` - [new tab](https://docs.plasmo.com/framework/newtab) page
-- `options` - [options](https://docs.plasmo.com/framework/options) page
-- `popup` - [popup](https://docs.plasmo.com/framework/popup) window
-- `sidepanel` - [side panel](https://docs.plasmo.com/framework/sidepanel)
-- `tabs` - [tabs](https://docs.plasmo.com/framework/tabs) pages (custom pages delivered with the extension)
+- `background` - [background service worker](https://wxt.dev/guide/essentials/entrypoints.html#background)
+- `content` - [content scripts](https://wxt.dev/guide/essentials/content-scripts.html) that run in the context of web pages
+- `devtools` - [devtools](https://wxt.dev/guide/essentials/entrypoints.html#devtools) page with custom panels
+- `newtab` - [new tab](https://wxt.dev/guide/essentials/entrypoints.html#newtab) page
+- `options` - [options](https://wxt.dev/guide/essentials/entrypoints.html#options) page
+- `popup` - [popup](https://wxt.dev/guide/essentials/entrypoints.html#popup) window
+- `sidepanel` - [side panel](https://wxt.dev/guide/essentials/entrypoints.html#side-panel)
+- `tabs` - [unlisted](https://wxt.dev/guide/essentials/entrypoints.html#unlisted-pages) pages (custom pages delivered with the extension)
 
 ## Styleguide
 
@@ -95,12 +95,13 @@ Component.displayName = "Component";
 | ---------------------------------------------- | ----------------------------------------------------------------------------- |
 | [TypeScript](https://www.typescriptlang.org/)  | Static type-checking programming language                                     |
 | [React](https://reactjs.org/)                  | Library for building user interfaces                                          |
-| [Plasmo](https://www.plasmo.com/)              | Next.js for browser extensions                                                |
+| [WXT](https://wxt.dev/)                        | Next-gen Web Extension Framework                                              |
 | [Supabase](https://supabase.com/)              | Open source Firebase alternative                                              |
 | [shadcn/ui](https://ui.shadcn.com/)            | Extendable component library                                                  |
 | [Tailwind](https://tailwindcss.com/)           | Utility-first CSS framework                                                   |
 | [OpenPanel](https://openpanel.dev/)            | Open source analytics                                                         |
 | [React Hook Form](https://react-hook-form.com) | Forms with easy-to-use validation                                             |
+| [Vite](https://vitejs.dev/)                    | Next generation frontend tool                                                 |
 | [Bun](https://bun.sh/)                         | Package manager and build tool                                                |
 | [Husky](https://github.com/typicode/husky)     | Git hooks                                                                     |
 | [Biome](https://biomejs.dev/)                  | Linting and formatting                                                        |

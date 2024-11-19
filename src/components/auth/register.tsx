@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { browser } from "wxt/browser";
 import { z } from "zod";
 import { Button } from "~/components/ui/button";
 import {
@@ -29,7 +30,7 @@ export const Register = () => {
     mutationFn: (data: RegisterData) => supabase.auth.signUp(data),
     onError: (error) => toast.error(error.message),
     onSuccess: () =>
-      chrome.tabs.update({
+      browser.tabs.update({
         url: "options.html",
       }),
   });
@@ -53,7 +54,7 @@ export const Register = () => {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{chrome.i18n.getMessage("name")}</FormLabel>
+              <FormLabel>{browser.i18n.getMessage("name")}</FormLabel>
               <FormControl>
                 <Input placeholder="John Doe" {...field} />
               </FormControl>
@@ -67,7 +68,7 @@ export const Register = () => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{chrome.i18n.getMessage("email")}</FormLabel>
+              <FormLabel>{browser.i18n.getMessage("email")}</FormLabel>
               <FormControl>
                 <Input placeholder="email@example.com" {...field} />
               </FormControl>
@@ -81,7 +82,7 @@ export const Register = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{chrome.i18n.getMessage("password")}</FormLabel>
+              <FormLabel>{browser.i18n.getMessage("password")}</FormLabel>
               <FormControl>
                 <Input type="password" placeholder="••••••••" {...field} />
               </FormControl>
@@ -93,15 +94,15 @@ export const Register = () => {
           {isPending ? (
             <Loader2 className="size-4 animate-spin" />
           ) : (
-            chrome.i18n.getMessage("register")
+            browser.i18n.getMessage("register")
           )}
         </Button>
       </form>
 
       <div className="mt-4 text-center text-sm">
-        {chrome.i18n.getMessage("alreadyHaveAccount")}{" "}
-        <a href="/tabs/login.html" className="underline hover:no-underline">
-          {chrome.i18n.getMessage("login")}
+        {browser.i18n.getMessage("alreadyHaveAccount")}{" "}
+        <a href="tabs.html#login" className="underline hover:no-underline">
+          {browser.i18n.getMessage("login")}
         </a>
       </div>
     </Form>

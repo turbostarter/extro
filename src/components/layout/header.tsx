@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <header className="flex items-center justify-center gap-2">
       <a
-        href="/tabs/ai.html"
+        href="/tabs.html#ai"
         target="_blank"
         rel="noreferrer"
         className={cn(

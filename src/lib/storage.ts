@@ -1,21 +1,65 @@
-import { Storage } from "@plasmohq/storage";
-import { Theme } from "~/types";
+import { useEffect, useState } from "react";
+import { type WxtStorageItem, storage as browserStorage } from "wxt/storage";
+import { Theme, type User } from "~/types";
 
-export const storage = new Storage();
-
-export const STORAGE_KEY = {
-  THEME: "theme",
-  USER: "user",
+export const StorageKey = {
+  THEME: "local:theme",
+  USER: "local:user",
 } as const;
 
-const setupThemeStorage = async () => {
-  const value = await storage.get(STORAGE_KEY.THEME);
+export type StorageKey = (typeof StorageKey)[keyof typeof StorageKey];
 
-  if (!value) {
-    await storage.set(STORAGE_KEY.THEME, Theme.SYSTEM);
-  }
+const storage = {
+  [StorageKey.THEME]: browserStorage.defineItem<Theme>(StorageKey.THEME, {
+    fallback: Theme.SYSTEM,
+  }),
+  [StorageKey.USER]: browserStorage.defineItem<User | null>(StorageKey.USER, {
+    fallback: null,
+  }),
+} as const;
+
+type Value<T extends StorageKey> = (typeof storage)[T] extends WxtStorageItem<
+  infer V,
+  infer _
+>
+  ? V
+  : never;
+
+export const getStorage = <K extends StorageKey>(key: K) => {
+  return storage[key];
 };
 
-export const setupStorage = async () => {
-  await setupThemeStorage();
+export const useStorage = <K extends StorageKey>(key: K) => {
+  const item = storage[key] as WxtStorageItem<
+    Value<K>,
+    Record<string, unknown>
+  >;
+  const [value, setValue] = useState<Value<K> | null>(null);
+
+  useEffect(() => {
+    const unwatch = item.watch((value) => {
+      setValue(value);
+    });
+
+    return () => {
+      unwatch();
+    };
+  }, [item]);
+
+  useEffect(() => {
+    (async () => {
+      const value = await item.getValue();
+      setValue(value);
+    })();
+  }, [item.getValue]);
+
+  const remove = () => {
+    void item.removeValue();
+  };
+
+  const set = (value: Value<K>) => {
+    void item.setValue(value);
+  };
+
+  return { data: value ?? item.fallback, remove, set };
 };

@@ -222,7 +222,7 @@ const AIDisclaimer = () => {
   );
 };
 
-const AI = () => {
+export const AI = () => {
   return (
     <Layout>
       <AIDisclaimer />
@@ -230,5 +230,3 @@ const AI = () => {
     </Layout>
   );
 };
-
-export default AI;

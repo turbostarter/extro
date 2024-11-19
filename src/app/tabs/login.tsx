@@ -1,10 +1,11 @@
+import { browser } from "wxt/browser";
 import { Auth } from "~/components/auth";
 
-const LoginTab = () => {
+export const Login = () => {
   return (
     <Auth.Layout
-      title={chrome.i18n.getMessage("login")}
-      description={chrome.i18n.getMessage("loginDescription")}
+      title={browser.i18n.getMessage("login")}
+      description={browser.i18n.getMessage("loginDescription")}
     >
       <Auth.Socials />
       <Auth.Separator />
@@ -12,5 +13,3 @@ const LoginTab = () => {
     </Auth.Layout>
   );
 };
-
-export default LoginTab;

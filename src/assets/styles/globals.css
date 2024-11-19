@@ -78,7 +78,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(/assets/fonts/Geist-Regular.woff2) format("woff2");
+    src: url(/fonts/Geist-Regular.woff2) format("woff2");
   }
 
   @font-face {
@@ -86,7 +86,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(/assets/fonts/Geist-Bold.woff2) format("woff2");
+    src: url(/fonts/Geist-Bold.woff2) format("woff2");
   }
 
   @font-face {
@@ -94,7 +94,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(/assets/fonts/GeistMono-Regular.woff2) format("woff2");
+    src: url(/fonts/GeistMono-Regular.woff2) format("woff2");
   }
 
   @font-face {
@@ -102,6 +102,6 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(/assets/fonts/GeistMono-Bold.woff2) format("woff2");
+    src: url(/fonts/GeistMono-Bold.woff2) format("woff2");
   }
 }

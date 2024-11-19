@@ -23,7 +23,8 @@
 ![GitHub license](https://img.shields.io/github/license/turbostarter/extro)
 <a href="https://discord.gg/KjpK2uk3JP" target="_blank"><img src="https://discord.com/api/guilds/1280456871693779006/widget.png"/></a>
 
-
+> This boilerplate
+> has [Plasmo version](https://github.com/turbostarter/extro/tree/plasmo)
 
 </div>
 
@@ -53,7 +54,7 @@
 
 - 🔒 Full type-safety with Typescript
 - 📄 All pages (background, popup, options etc.)
-- 📜 Content scripts
+- 📜 Content scripts (UI)
 - 🔐 Authentication (OAuth)
 - 💾 Storage
 - 💬 Messaging
@@ -77,12 +78,13 @@
 | ---------------------------------------------- | ----------------------------------------------------------------------------- |
 | [TypeScript](https://www.typescriptlang.org/)  | Static type-checking programming language                                     |
 | [React](https://reactjs.org/)                  | Library for building user interfaces                                          |
-| [Plasmo](https://www.plasmo.com/)              | Next.js for browser extensions                                                |
+| [WXT](https://wxt.dev/)                        | Next-gen Web Extension Framework                                              |
 | [Supabase](https://supabase.com/)              | Open source Firebase alternative                                              |
 | [shadcn/ui](https://ui.shadcn.com/)            | Extendable component library                                                  |
 | [Tailwind](https://tailwindcss.com/)           | Utility-first CSS framework                                                   |
 | [OpenPanel](https://openpanel.dev/)            | Open source analytics                                                         |
 | [React Hook Form](https://react-hook-form.com) | Forms with easy-to-use validation                                             |
+| [Vite](https://vitejs.dev/)                    | Next generation frontend tool                                                 |
 | [Bun](https://bun.sh/)                         | Package manager and build tool                                                |
 | [Husky](https://github.com/typicode/husky)     | Git hooks                                                                     |
 | [Biome](https://biomejs.dev/)                  | Linting and formatting                                                        |
@@ -130,7 +132,7 @@ bun dev:chrome
 2. Open Chrome and go to `chrome://extensions`
 3. Check `Developer mode`
 4. Click `Load unpacked`
-5. Select the `build/chrome-mv3-dev` directory at root
+5. Select the `build/chrome-mv3` directory at root
 
 #### Firefox
 
@@ -142,7 +144,7 @@ bun dev:firefox
 
 2. Open Firefox and go to `about:debugging#/runtime/this-firefox`
 3. Click `Load Temporary Add-on...`
-4. Select the `build/firefox-mv2-dev/manifest.json` file at root
+4. Select the `build/firefox-mv2/manifest.json` file at root
 
 > [!NOTE]  
 > In Firefox you're adding a plugin in _temporary_ mode - that means it'll disappear after you close the browser.
@@ -156,22 +158,22 @@ bun dev:firefox
 
 #### CI/CD
 
-1. Copy `keys.template.json` to `keys.json` and update the keys (check the [official token guide](https://github.com/PlasmoHQ/bms/blob/main/tokens.md) to learn more about the tokens required to submit)
-2. Set content of `keys.json` as [Github secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets) under `SUBMIT_KEYS` name
+1. Obtain all the [required API keys](https://wxt.dev/guide/essentials/publishing.html#github-action) for your submission (check the [official token guide](https://github.com/PlasmoHQ/bms/blob/main/tokens.md) to learn more about the tokens required to submit)
+2. Set your API keys as [Github secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) under appropriate names
 3. Run `CI / Publish` workflow
 
 ### Pages
 
 Extro ships with the following extension pages preconfigured:
 
-- `background` - [background service worker](https://docs.plasmo.com/framework/background-service-worker)
-- `contents` - [content scripts](https://docs.plasmo.com/framework/content-scripts) that run in the context of web pages
-- `devtools` - [devtools](https://docs.plasmo.com/framework/devtools) page with custom panels
-- `newtab` - [new tab](https://docs.plasmo.com/framework/newtab) page
-- `options` - [options](https://docs.plasmo.com/framework/options) page
-- `popup` - [popup](https://docs.plasmo.com/framework/popup) window
-- `sidepanel` - [side panel](https://docs.plasmo.com/framework/sidepanel)
-- `tabs` - [tabs](https://docs.plasmo.com/framework/tabs) pages (custom pages delivered with the extension)
+- `background` - [background service worker](https://wxt.dev/guide/essentials/entrypoints.html#background)
+- `content` - [content scripts](https://wxt.dev/guide/essentials/content-scripts.html) that run in the context of web pages
+- `devtools` - [devtools](https://wxt.dev/guide/essentials/entrypoints.html#devtools) page with custom panels
+- `newtab` - [new tab](https://wxt.dev/guide/essentials/entrypoints.html#newtab) page
+- `options` - [options](https://wxt.dev/guide/essentials/entrypoints.html#options) page
+- `popup` - [popup](https://wxt.dev/guide/essentials/entrypoints.html#popup) window
+- `sidepanel` - [side panel](https://wxt.dev/guide/essentials/entrypoints.html#side-panel)
+- `tabs` - [unlisted](https://wxt.dev/guide/essentials/entrypoints.html#unlisted-pages) pages (custom pages delivered with the extension)
 
 ## Community 💬 <a name="community"></a>
 

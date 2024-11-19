@@ -1,10 +1,11 @@
+import { browser } from "wxt/browser";
 import { Auth } from "~/components/auth";
 
-const RegisterTab = () => {
+export const Register = () => {
   return (
     <Auth.Layout
-      title={chrome.i18n.getMessage("register")}
-      description={chrome.i18n.getMessage("registerDescription")}
+      title={browser.i18n.getMessage("register")}
+      description={browser.i18n.getMessage("registerDescription")}
     >
       <Auth.Socials />
       <Auth.Separator />
@@ -12,5 +13,3 @@ const RegisterTab = () => {
     </Auth.Layout>
   );
 };
-
-export default RegisterTab;

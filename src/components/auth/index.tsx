@@ -2,6 +2,7 @@ import type { Provider } from "@supabase/supabase-js";
 import { useMutation } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import { browser } from "wxt/browser";
 import { Layout as MainLayout } from "~/components/layout/layout";
 import { Button } from "~/components/ui/button";
 import {
@@ -46,7 +47,7 @@ const Separator = () => {
       </div>
       <div className="relative flex justify-center text-xs uppercase">
         <span className="bg-card px-2 text-muted-foreground">
-          {chrome.i18n.getMessage("continueWith")}
+          {browser.i18n.getMessage("continueWith")}
         </span>
       </div>
     </div>

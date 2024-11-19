@@ -33,17 +33,24 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: chrome-${{ github.sha }}
-          path: build/chrome-mv3-prod
+          path: build/*-chrome.zip
 
       - name: 🗃️ Archive Firefox artifact
         uses: actions/upload-artifact@v4
         with:
           name: firefox-${{ github.sha }}
-          path: build/firefox-mv2-prod
+          path: build/*-firefox.zip
 
       - name: 💨 Publish!
-        uses: PlasmoHQ/bpp@v3
-        with:
-          chrome-file: build/chrome-mv3-prod.zip
-          firefox-file: build/firefox-mv2-prod.zip
-          keys: ${{ secrets.SUBMIT_KEYS }}
+        run: |
+          bun wxt submit \
+            --chrome-zip build/*-chrome.zip \
+            --firefox-zip build/*-firefox.zip --firefox-sources-zip build/*-sources.zip
+        env:
+          CHROME_EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
+          CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+          FIREFOX_EXTENSION_ID: ${{ secrets.FIREFOX_EXTENSION_ID }}
+          FIREFOX_JWT_ISSUER: ${{ secrets.FIREFOX_JWT_ISSUER }}
+          FIREFOX_JWT_SECRET: ${{ secrets.FIREFOX_JWT_SECRET }}
