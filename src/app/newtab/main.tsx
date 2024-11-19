@@ -6,7 +6,7 @@ import { Layout } from "~/components/layout/layout";
 
 const NewTab = () => {
   return (
-    <Layout className="p-8">
+    <Layout>
       <Main filename="app/newtab" />
     </Layout>
   );

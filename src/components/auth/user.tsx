@@ -1,5 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
 import { LogIn, UserRound } from "lucide-react";
 import { browser } from "wxt/browser";
+import { Message, sendMessage } from "~/lib/messaging";
 
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
@@ -22,7 +24,7 @@ const AnonymousUser = () => {
       className="rounded-full"
       onClick={() => {
         browser.tabs.create({
-          url: "./tabs/login.html",
+          url: "tabs.html#login",
         });
       }}
     >
@@ -32,33 +34,23 @@ const AnonymousUser = () => {
 };
 
 export const User = () => {
-  // const { data } = useQuery({
-  //   queryKey: ["user"],
-  //   queryFn: () =>
-  //     sendToBackground<
-  //       undefined,
-  //       {
-  //         user: UserType | null;
-  //       }
-  //     >({
-  //       name: "user",
-  //     }),
-  // });
+  const { data } = useQuery({
+    queryKey: [Message.USER],
+    queryFn: () => sendMessage(Message.USER, undefined),
+  });
 
-  const user = null;
-
-  if (!user) {
+  if (!data) {
     return <AnonymousUser />;
   }
 
-  const name = getName(user);
+  const name = getName(data);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon" className="rounded-full">
           <Avatar className="size-10">
-            <AvatarImage src={getAvatar(user)} alt={name} />
+            <AvatarImage src={getAvatar(data)} alt={name} />
             <AvatarFallback>
               <UserRound className="size-5" />
             </AvatarFallback>
@@ -67,18 +59,18 @@ export const User = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuLabel className="font-normal">
-          {/* <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2">
             {name && (
               <p className="font-sans text-sm font-medium leading-none">
                 {name}
               </p>
             )}
-            {user.email && (
+            {data.email && (
               <p className="font-sans text-xs leading-none text-muted-foreground">
-                {user.email}
+                {data.email}
               </p>
             )}
-          </div> */}
+          </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 

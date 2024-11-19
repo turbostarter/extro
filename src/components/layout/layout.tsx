@@ -2,14 +2,15 @@ import { StorageKey, useStorage } from "@/lib/storage";
 import { supabase } from "@/lib/supabase";
 import { Theme } from "@/types";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ErrorBoundary } from "~/components/common/error-boundary";
 import { Suspense } from "~/components/common/suspense";
 import { Footer } from "~/components/layout/footer";
 import { Header } from "~/components/layout/header";
 import { Toaster } from "~/components/ui/sonner";
+import { Message } from "~/lib/messaging";
 import { cn } from "~/lib/utils";
-import "~/styles/globals.css";
+import "~/assets/styles/globals.css";
 
 interface LayoutProps {
   readonly children: React.ReactNode;
@@ -18,14 +19,14 @@ interface LayoutProps {
   readonly className?: string;
 }
 
+const queryClient = new QueryClient();
+
 export const Layout = ({
   children,
   loadingFallback,
   errorFallback,
   className,
 }: LayoutProps) => {
-  const [queryClient] = useState(() => new QueryClient());
-
   return (
     <QueryClientProvider client={queryClient}>
       <ErrorBoundary fallback={errorFallback}>
@@ -47,7 +48,7 @@ const LayoutContent = ({
   useEffect(() => {
     const { data } = supabase.auth.onAuthStateChange((_, session) => {
       setUser(session?.user ?? null);
-      // queryClient.invalidateQueries({ queryKey: ["user"] });
+      queryClient.invalidateQueries({ queryKey: [Message.USER] });
     });
 
     return () => {

@@ -1,7 +1,6 @@
-import { Theme, type User } from "~/types";
-
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { type WxtStorageItem, storage as browserStorage } from "wxt/storage";
+import { Theme, type User } from "~/types";
 
 export const StorageKey = {
   THEME: "local:theme",
@@ -17,29 +16,50 @@ const storage = {
   [StorageKey.USER]: browserStorage.defineItem<User | null>(StorageKey.USER, {
     fallback: null,
   }),
+} as const;
+
+type Value<T extends StorageKey> = (typeof storage)[T] extends WxtStorageItem<
+  infer V,
+  infer _
+>
+  ? V
+  : never;
+
+export const getStorage = <K extends StorageKey>(key: K) => {
+  return storage[key];
 };
 
 export const useStorage = <K extends StorageKey>(key: K) => {
-  type Value = (typeof storage)[K] extends WxtStorageItem<infer V, infer _>
-    ? V
-    : never;
+  const item = storage[key] as WxtStorageItem<
+    Value<K>,
+    Record<string, unknown>
+  >;
+  const [value, setValue] = useState<Value<K> | null>(null);
 
-  const item = storage[key] as WxtStorageItem<Value, Record<string, unknown>>;
+  useEffect(() => {
+    const unwatch = item.watch((value) => {
+      setValue(value);
+    });
 
-  const { data, refetch } = useQuery({
-    queryKey: [key],
-    queryFn: () => item.getValue(),
-  });
+    return () => {
+      unwatch();
+    };
+  }, [item]);
+
+  useEffect(() => {
+    (async () => {
+      const value = await item.getValue();
+      setValue(value);
+    })();
+  }, [item.getValue]);
 
   const remove = () => {
     void item.removeValue();
-    void refetch();
   };
 
-  const set = (value: Value) => {
+  const set = (value: Value<K>) => {
     void item.setValue(value);
-    void refetch();
   };
 
-  return { data: data ?? item.fallback, remove, set };
+  return { data: value ?? item.fallback, remove, set };
 };

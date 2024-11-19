@@ -7,6 +7,7 @@ export default defineConfig({
     description: "__MSG_extensionDescription__",
     default_locale: "en",
     permissions: ["storage", "sidePanel", "scripting"],
+    host_permissions: ["<all_urls>"],
   },
   srcDir: "src",
   entrypointsDir: "app",

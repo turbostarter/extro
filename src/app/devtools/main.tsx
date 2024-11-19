@@ -8,20 +8,20 @@ import { Layout } from "~/components/layout/layout";
 browser.devtools.panels.create(
   browser.i18n.getMessage("extensionName"),
   "icons/128.png",
-  "popup.html",
+  "devtools.html",
 );
 
 browser.devtools.panels.elements
   .createSidebarPane(browser.i18n.getMessage("extensionName"))
   .then((sidebar) => {
-    sidebar.setPage("<p>siema</p>");
+    sidebar.setObject({
+      name: "DevTools",
+    });
   });
-
-console.log("siema");
 
 const DevTools = () => {
   return (
-    <Layout className="p-8">
+    <Layout>
       <Main filename="app/devtools" />
     </Layout>
   );

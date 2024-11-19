@@ -101,7 +101,7 @@ export const Register = () => {
 
       <div className="mt-4 text-center text-sm">
         {browser.i18n.getMessage("alreadyHaveAccount")}{" "}
-        <a href="/tabs/login.html" className="underline hover:no-underline">
+        <a href="tabs.html#login" className="underline hover:no-underline">
           {browser.i18n.getMessage("login")}
         </a>
       </div>
