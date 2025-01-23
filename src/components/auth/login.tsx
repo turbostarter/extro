@@ -26,7 +26,10 @@ type LoginData = z.infer<typeof loginSchema>;
 
 export const Login = () => {
   const { mutate, isPending } = useMutation({
-    mutationFn: (data: LoginData) => supabase.auth.signInWithPassword(data),
+    mutationFn: async (data: LoginData) => {
+      const { error } = await supabase.auth.signInWithPassword(data);
+      if (error) throw error;
+    },
     onError: (error) => toast.error(error.message),
     onSuccess: () =>
       browser.tabs.update({

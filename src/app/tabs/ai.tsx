@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { type CoreMessage, streamText } from "ai";
+import { streamText } from "ai";
 import { chromeai } from "chrome-ai";
 import { type KeyboardEvent, useState } from "react";
 import { Layout } from "~/components/layout/layout";
@@ -26,7 +26,7 @@ const promptSchema = z.object({
 });
 
 type Message = {
-  role: CoreMessage["role"];
+  role: "system" | "user" | "assistant" | "data";
   content: string;
 };
 

@@ -77,8 +77,8 @@ const LayoutContent = ({
         <Header />
         {children}
         <Footer />
-        <Toaster />
       </div>
+      <Toaster />
     </div>
   );
 };

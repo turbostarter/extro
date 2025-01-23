@@ -27,7 +27,10 @@ type RegisterData = z.infer<typeof registerSchema>;
 
 export const Register = () => {
   const { mutate, isPending } = useMutation({
-    mutationFn: (data: RegisterData) => supabase.auth.signUp(data),
+    mutationFn: async (data: RegisterData) => {
+      const { error } = await supabase.auth.signUp(data);
+      if (error) throw error;
+    },
     onError: (error) => toast.error(error.message),
     onSuccess: () =>
       browser.tabs.update({

@@ -56,13 +56,15 @@ const Separator = () => {
 
 const Socials = () => {
   const { mutate } = useMutation({
-    mutationFn: (provider: Provider) =>
-      supabase.auth.signInWithOAuth({
+    mutationFn: async (provider: Provider) => {
+      const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
           redirectTo: `${new URL(location.href).origin}/options.html`,
         },
-      }),
+      });
+      if (error) throw error;
+    },
     onError: (error) => toast.error(error.message),
   });
 
