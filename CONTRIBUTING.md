@@ -18,12 +18,12 @@ Description of the project files and directories.
 ├── .github/                      # Github related files (workflows, templates)
 ├── .husky/                       # Husky config
 ├── .vscode/                      # VSCode settings (extensions, settings)
+├── public/                       # Public assets (fonts, locales, etc.)
 ├── src/                          # Source code for the extension
 │    ├── app/                     # Entry files for each part of the extension (background, popup, options, etc.)
 │    ├── assets/                  # Static assets (fonts, images, svgs, etc.)
 │    ├── components/              # Shared components
 │    ├── lib/                     # Utility functions and third-party libraries
-│    ├── public/                  # Public assets (fonts, locales, etc.)
 │    ├── types/                   # TypeScript types
 │    └── typings/                 # Custom type definitions
 ├── .cursorrules                  # Cursor rules

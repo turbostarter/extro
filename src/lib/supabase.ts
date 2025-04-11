@@ -1,4 +1,4 @@
-import { storage } from "wxt/storage";
+import { storage } from "#imports";
 
 import { createClient } from "@supabase/supabase-js";
 import { env } from "~/lib/env";

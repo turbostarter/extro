@@ -1,6 +1,6 @@
 import { StorageKey, getStorage } from "@/lib/storage";
-import { defineBackground } from "wxt/sandbox";
 import { Message, onMessage } from "~/lib/messaging";
+import { defineBackground } from "#imports";
 
 const main = () => {
   console.log(

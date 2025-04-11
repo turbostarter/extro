@@ -10,5 +10,7 @@
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "tailwindCSS.experimental.configFile": "./tailwind.config.ts"
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }

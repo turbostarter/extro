@@ -11,13 +11,14 @@ browser.devtools.panels.create(
   "devtools.html",
 );
 
-browser.devtools.panels.elements
-  .createSidebarPane(browser.i18n.getMessage("extensionName"))
-  .then((sidebar) => {
+browser.devtools.panels.elements.createSidebarPane(
+  browser.i18n.getMessage("extensionName"),
+  (sidebar) => {
     sidebar.setObject({
       name: "DevTools",
     });
-  });
+  },
+);
 
 const DevTools = () => {
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { type WxtStorageItem, storage as browserStorage } from "wxt/storage";
 import { Theme, type User } from "~/types";
+import { type WxtStorageItem, storage as browserStorage } from "#imports";
 
 export const StorageKey = {
   THEME: "local:theme",

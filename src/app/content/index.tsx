@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import ReactDOM from "react-dom/client";
 import { browser } from "wxt/browser";
-import { createShadowRootUi } from "wxt/client";
-import { defineContentScript } from "wxt/sandbox";
+import { createShadowRootUi, defineContentScript } from "#imports";
 
 import "~/assets/styles/globals.css";
 
