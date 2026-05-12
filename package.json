@@ -13,6 +13,7 @@
     "dev:firefox": "wxt -b firefox",
     "lint": "biome check",
     "lint:fix": "biome check --write",
+    "react-doctor": "bunx --bun react-doctor@0.0.38 . --offline --fail-on none",
     "prepare": "husky",
     "typecheck": "tsc --noEmit",
     "postinstall": "wxt prepare"

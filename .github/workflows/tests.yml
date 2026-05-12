@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: ✅ Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: 🔨 Setup
         uses: ./.github/workflows/setup
@@ -32,6 +34,11 @@ jobs:
 
       - name: 🛻 Lint
         run: bun lint
+
+      - name: 🩺 React Doctor advisory scan
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: bun run react-doctor -- --diff origin/${{ github.base_ref }} --annotations
 
       - name: 💡 Typecheck
         run: bun typecheck
