@@ -104,7 +104,8 @@ You are an expert in TypeScript, Chrome Extensions API V3, React, WXT framework,
 - Run `bun typecheck` for TypeScript validation
 
 ### Testing and Quality
-- Use Vitest for unit testing (configured but implement tests)
+- Use Bun's built-in test runner (`bun test`) for unit tests
+- Place test files alongside source (e.g. `src/lib/tests/`)
 - Test extension functionality across different browser contexts
 - Validate manifest permissions and CSP compliance
 - Use browser dev tools for debugging extension components
