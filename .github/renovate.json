@@ -2,11 +2,11 @@
   "extends": ["config:recommended"],
   "dependencyDashboard": true,
   "labels": ["dependencies"],
-  "schedule": ["before 5am on monday"],
+  "schedule": ["before 5am on Monday"],
   "timezone": "UTC",
   "minimumReleaseAge": "7 days",
   "rangeStrategy": "bump",
-  "commitMessagePrefix": "chore(deps):",
+  "commitMessagePrefix": "chore(deps): ",
   "packageRules": [
     {
       "matchManagers": ["github-actions"],
