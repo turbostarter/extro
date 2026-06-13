@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import { storage as browserStorage, type WxtStorageItem } from "#imports";
 import { Theme, type User } from "~/types";
-import { type WxtStorageItem, storage as browserStorage } from "#imports";
 
 export const StorageKey = {
   THEME: "local:theme",
@@ -18,12 +18,8 @@ const storage = {
   }),
 } as const;
 
-type Value<T extends StorageKey> = (typeof storage)[T] extends WxtStorageItem<
-  infer V,
-  infer _
->
-  ? V
-  : never;
+type Value<T extends StorageKey> =
+  (typeof storage)[T] extends WxtStorageItem<infer V, infer _> ? V : never;
 
 export const getStorage = <K extends StorageKey>(key: K) => {
   return storage[key];

@@ -1,6 +1,6 @@
-import { StorageKey, getStorage } from "@/lib/storage";
-import { Message, onMessage } from "~/lib/messaging";
 import { defineBackground } from "#imports";
+import { getStorage, StorageKey } from "@/lib/storage";
+import { Message, onMessage } from "~/lib/messaging";
 
 const main = () => {
   console.log(

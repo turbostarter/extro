@@ -1,14 +1,13 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { streamText } from "ai";
 import { chromeai } from "chrome-ai";
-import { type KeyboardEvent, useState } from "react";
-import { Layout } from "~/components/layout/layout";
-
-import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowUp, X } from "lucide-react";
 import { marked } from "marked";
+import { type KeyboardEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { Layout } from "~/components/layout/layout";
 import { Button } from "~/components/ui/button";
 import {
   Form,

@@ -1,6 +1,6 @@
 import tailwindcss from "@tailwindcss/vite";
 import svgr from "vite-plugin-svgr";
-import { type WxtViteConfig, defineConfig } from "wxt";
+import { defineConfig, type WxtViteConfig } from "wxt";
 
 export default defineConfig({
   manifest: {

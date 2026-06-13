@@ -1,6 +1,5 @@
-import { Component } from "react";
-
 import type { ReactElement } from "react";
+import { Component } from "react";
 
 const ErrorContent = () => {
   return (

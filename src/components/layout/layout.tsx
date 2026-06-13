@@ -1,8 +1,8 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { StorageKey, useStorage } from "@/lib/storage";
 import { supabase } from "@/lib/supabase";
 import { Theme } from "@/types";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect } from "react";
 import { ErrorBoundary } from "~/components/common/error-boundary";
 import { Suspense } from "~/components/common/suspense";
 import { Footer } from "~/components/layout/footer";
@@ -41,7 +41,10 @@ export const Layout = ({
 const LayoutContent = ({
   children,
   className,
-}: { readonly children: React.ReactNode; readonly className?: string }) => {
+}: {
+  readonly children: React.ReactNode;
+  readonly className?: string;
+}) => {
   const { data: theme } = useStorage(StorageKey.THEME);
   const { set: setUser } = useStorage(StorageKey.USER);
 
