@@ -1,5 +1,3 @@
-"use client";
-
 import { Moon, Sun } from "lucide-react";
 import { memo } from "react";
 import { browser } from "wxt/browser";
