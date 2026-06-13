@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { LogIn, UserRound } from "lucide-react";
 import { browser } from "wxt/browser";
-import { Message, sendMessage } from "~/lib/messaging";
-
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
 import {
@@ -13,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
+import { Message, sendMessage } from "~/lib/messaging";
 import { supabase } from "~/lib/supabase";
 import { getAvatar, getName } from "~/lib/utils";
 

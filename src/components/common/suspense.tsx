@@ -1,7 +1,6 @@
 import { Loader2 } from "lucide-react";
-import { Suspense as ReactSuspense } from "react";
-
 import type { ReactElement } from "react";
+import { Suspense as ReactSuspense } from "react";
 
 const Loading = () => {
   return (

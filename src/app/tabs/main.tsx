@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createHashRouter } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { AI } from "./ai";
 import { Login } from "./login";
 import { Register } from "./register";
