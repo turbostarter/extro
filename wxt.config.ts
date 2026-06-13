@@ -17,7 +17,16 @@ export default defineConfig({
   imports: false,
   vite: () =>
     ({
-      plugins: [svgr(), tailwindcss()],
+      plugins: [
+        svgr({
+          oxcOptions: {
+            jsx: {
+              runtime: "automatic",
+            },
+          },
+        }),
+        tailwindcss(),
+      ],
     }) as WxtViteConfig,
   webExt: {
     chromiumArgs: ["--disable-features=DisableLoadExtensionCommandLineSwitch"],
