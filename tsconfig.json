@@ -19,8 +19,9 @@
 
     "module": "Preserve",
     "moduleResolution": "Bundler",
-    "noEmit": true
+    "noEmit": true,
+    "types": ["bun"]
   },
   "include": [".wxt/wxt.d.ts", "src", "*.ts", "*.js"],
-  "exclude": ["node_modules", "**/*.test.ts"]
+  "exclude": ["node_modules"]
 }
