@@ -1,4 +1,5 @@
 import { browser } from "wxt/browser";
+import { cn } from "@/lib/utils";
 
 import { buttonVariants } from "~/components/ui/button";
 
@@ -9,10 +10,12 @@ export const Footer = () => {
         href="https://git.new/extro"
         target="_blank"
         rel="noreferrer noopener"
-        className={buttonVariants({
-          variant: "outline",
-          className: "w-[6.5rem]",
-        })}
+        className={cn(
+          buttonVariants({
+            variant: "outline",
+            className: "w-[6.5rem]",
+          }),
+        )}
       >
         {browser.i18n.getMessage("star")}{" "}
         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -28,10 +31,12 @@ export const Footer = () => {
         href="https://x.com/bzagrodzki"
         target="_blank"
         rel="noreferrer noopener"
-        className={buttonVariants({
-          variant: "outline",
-          className: "w-[6.5rem]",
-        })}
+        className={cn(
+          buttonVariants({
+            variant: "outline",
+            className: "w-[6.5rem]",
+          }),
+        )}
       >
         {browser.i18n.getMessage("follow")}{" "}
         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
