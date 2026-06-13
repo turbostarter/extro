@@ -1,14 +1,16 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "default",
-  "tailwind": {
-    "css": "src/styles/globals.css",
-    "baseColor": "gray",
-    "cssVariables": true,
-    "config": "tailwind.config.ts"
-  },
+  "style": "base-vega",
   "rsc": false,
   "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/assets/styles/globals.css",
+    "baseColor": "gray",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
   "aliases": {
     "utils": "~/lib/utils",
     "components": "~/components",

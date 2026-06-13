@@ -46,16 +46,18 @@ export const User = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" className="rounded-full">
-          <Avatar className="size-10">
-            <AvatarImage src={getAvatar(data)} alt={name} />
-            <AvatarFallback>
-              <UserRound className="size-5" />
-            </AvatarFallback>
-          </Avatar>
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="icon" className="rounded-full">
+            <Avatar className="size-10">
+              <AvatarImage src={getAvatar(data)} alt={name} />
+              <AvatarFallback>
+                <UserRound className="size-5" />
+              </AvatarFallback>
+            </Avatar>
+          </Button>
+        }
+      />
       <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-2">
@@ -73,14 +75,18 @@ export const User = () => {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem className="cursor-pointer" asChild>
-          <button
-            type="button"
-            className="w-full"
-            onClick={() => supabase.auth.signOut()}
-          >
-            {browser.i18n.getMessage("logout")}
-          </button>
+        <DropdownMenuItem
+          className="cursor-pointer"
+          render={
+            <button
+              type="button"
+              className="w-full"
+              onClick={() => supabase.auth.signOut()}
+            />
+          }
+          nativeButton={false}
+        >
+          {browser.i18n.getMessage("logout")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

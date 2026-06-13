@@ -24,17 +24,19 @@ export const ThemeSwitch = memo<ThemeSwitchProps>(({ className }) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-          className={cn("rounded-full", className)}
-        >
-          <Sun className="size-5 scale-100 dark:scale-0" />
-          <Moon className="absolute size-5 scale-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            variant="outline"
+            size="icon"
+            className={cn("rounded-full", className)}
+          >
+            <Sun className="size-5 scale-100 dark:scale-0" />
+            <Moon className="absolute size-5 scale-0 dark:scale-100" />
+            <span className="sr-only">Toggle theme</span>
+          </Button>
+        }
+      />
       <DropdownMenuContent align="end">
         {Object.values(Theme).map((theme) => (
           <DropdownMenuItem key={theme} onClick={() => setTheme(theme)}>
