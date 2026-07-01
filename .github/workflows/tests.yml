@@ -15,7 +15,7 @@ concurrency:
 
 env:
   FORCE_COLOR: 3
-  NODE_VERSION: 20.x
+  NODE_VERSION: 24.x
 
 jobs:
   test:
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ✅ Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 🔨 Setup
         uses: ./.github/workflows/setup
