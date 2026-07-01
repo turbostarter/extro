@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: ✅ Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 🔨 Setup
         uses: ./.github/workflows/setup
@@ -30,13 +30,13 @@ jobs:
         run: bun run build
 
       - name: 🗃️ Archive Chrome artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: chrome-${{ github.sha }}
           path: build/*-chrome.zip
 
       - name: 🗃️ Archive Firefox artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: firefox-${{ github.sha }}
           path: build/*-firefox.zip
