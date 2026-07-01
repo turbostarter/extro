@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Open source browser extension starter kit.",
   "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
   "author": "Bartosz Zagrodzki",
   "scripts": {
     "build": "run-p build:chrome build:firefox",

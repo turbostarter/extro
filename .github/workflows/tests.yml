@@ -15,7 +15,7 @@ concurrency:
 
 env:
   FORCE_COLOR: 3
-  NODE_VERSION: 20.x
+  NODE_VERSION: 24.x
 
 jobs:
   test:
