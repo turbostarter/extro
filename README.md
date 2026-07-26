@@ -182,17 +182,6 @@ You can ask questions on that server, and you can also help others.
 
 Also, suggest new features or share any challenges you've faced while developing Chrome extensions!
 
-## Star History 🌟 <a name="star-history"></a>
-
-<a href="https://star-history.com/#turbostarter/extro&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=turbostarter/extro&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=turbostarter/extro&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=turbostarter/extro&type=Date" />
- </picture>
-</a>
-
-
 ---
 
 Made with ❤️ by [Bartosz Zagrodzki](https://zagrodzki.me)
