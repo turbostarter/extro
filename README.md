@@ -1,3 +1,5 @@
+> **Legacy notice:** This `plasmo` branch is legacy and unmaintained (old Plasmo + Supabase stack). The current, maintained extension is [TurboStarter](https://turbostarter.dev), built with WXT, Better Auth, Drizzle, and Postgres, alongside a Next.js web app and Expo mobile app from one codebase.
+
 <div align="center">
  
  <br />
